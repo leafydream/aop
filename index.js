@@ -1,13 +1,12 @@
 export default class AOP {
   constructor() {
     if (this instanceof AOP) {
-      throw new Error("Constructors cannot be instantiated。");
+      throw new Error("Constructors cannot be instantiated");
     }
   }
   static before(func) {
     let [, ...args] = arguments;
     return (target, name, descriptor) => {
-      debugger;
       var oldValue = descriptor.value;
       descriptor.enumerable = false;
       descriptor.value = function() {
